@@ -1,0 +1,133 @@
+﻿@import "colors.scss";
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Calibri;
+    box-sizing: border-box;
+}
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .error-text {
+        padding: 1rem;
+        position: fixed;
+        top: 0;
+        background: red;
+        border-radius: 1rem;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+        z-index: 2;
+        box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.5);
+        margin-top: 1rem;
+    }
+}
+
+.login-outer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    color: #555;
+
+    .login-main {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        padding-top: 4rem;
+        width: 31%;
+
+        > .login-text {
+            font-size: 1.3rem;
+            width: 100%;
+        }
+
+        .login-terms {
+            text-align: center;
+            width: 100%;
+            padding-top: 1rem;
+            font-family: cursive;
+            font-size: 1.2rem;
+
+            > a {
+                color: $btncolordark;
+            }
+        }
+
+        .login-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            > input {
+                outline: none;
+                background: none;
+                border: none;
+                width: 7rem;
+                height: 2rem;
+                font-size: 1rem;
+                color: white;
+                border-radius: 1rem;
+                background: $btncolordark;
+                cursor: pointer;
+            }
+        }
+
+        .login-privacy {
+            padding: 1rem 0;
+            text-align: center;
+            display: flex;
+
+            a {
+                color: $btncolordark;
+                padding: 0 0 0 0.4rem;
+            }
+
+            img {
+                width: 1.8rem;
+                padding: 0 0.5rem 0 0;
+                cursor: pointer;
+            }
+        }
+
+        .input-email {
+            > input {
+                outline: none;
+                border: none;
+                background: none;
+                border-bottom: 1px solid;
+                width: 100%;
+                font-size: 1rem;
+                padding-top: 1rem;
+                font-family: cursive;
+            }
+        }
+    }
+
+    .login-heading {
+
+        > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            > span {
+                font-size: 1.5rem;
+                color: #555;
+                font-family: Calibri;
+                line-height: 3rem;
+            }
+        }
+    }
+}

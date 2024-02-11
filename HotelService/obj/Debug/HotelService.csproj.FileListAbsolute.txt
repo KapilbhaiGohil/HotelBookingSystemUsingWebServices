@@ -1,0 +1,7 @@
+E:\6TH SEM\WSD\Project\HotelService\bin\Debug\HotelService.dll.config
+E:\6TH SEM\WSD\Project\HotelService\bin\Debug\HotelService.dll
+E:\6TH SEM\WSD\Project\HotelService\bin\Debug\HotelService.pdb
+E:\6TH SEM\WSD\Project\HotelService\obj\Debug\HotelService.csproj.AssemblyReference.cache
+E:\6TH SEM\WSD\Project\HotelService\obj\Debug\HotelService.csproj.CoreCompileInputs.cache
+E:\6TH SEM\WSD\Project\HotelService\obj\Debug\HotelService.dll
+E:\6TH SEM\WSD\Project\HotelService\obj\Debug\HotelService.pdb

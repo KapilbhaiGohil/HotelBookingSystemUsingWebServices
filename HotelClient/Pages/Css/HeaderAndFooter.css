@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: Calibri;
+  box-sizing: border-box;
+}
+
+nav {
+  position: sticky;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 4rem;
+  margin: auto;
+  color: #4a4a4a;
+  background: white;
+}
+nav .content-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+nav .content-left .links {
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0rem 2rem;
+}
+nav .content-left .links > a {
+  margin-left: 2rem;
+  color: #4a4a4a;
+}
+nav .content-right {
+  display: flex;
+  flex-direction: row;
+  padding: 0rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .content-right .right-links {
+  cursor: pointer;
+  padding-right: 2rem;
+  transition: border-bottom 0.3s ease;
+}
+nav .content-right .right-links a {
+  color: black;
+}
+nav .content-right .right-links input {
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+  background: #aa7938;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 0.3rem;
+  color: white;
+  cursor: pointer;
+}
+nav .content-right .right-links a {
+  color: #aa7938;
+}
+nav .content-right .button {
+  background-color: #aa7938;
+  width: 10rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+}
+nav .content-right .button > button {
+  text-decoration: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 10rem;
+  height: 2.5rem;
+  font-size: 1.3rem;
+  background-color: transparent;
+  font-family: monospace;
+  color: #fff;
+  transition: background-color 0.4s linear, box-shadow 0.4s, font-size 0.4s ease;
+  font-family: Calibri;
+}
+nav a:hover {
+  color: #aa7938;
+  border-bottom: 2px solid;
+}
+
+.footer {
+  width: 100%;
+  background-color: #efeeee;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 7rem;
+  justify-content: center;
+}
+.footer .footer-links {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.footer .footer-links a {
+  color: #1b1b1b;
+  font-size: 0.9375rem;
+  letter-spacing: 1px;
+  padding: 0.4rem 0;
+}
+.footer .footer-links .links-1 div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer .footer-links .links-2 {
+  display: flex;
+  flex-direction: column;
+}
+.footer .footer-links .links-3 {
+  display: flex;
+  flex-direction: column;
+}
+.footer .footer-links .footer-contact {
+  display: flex;
+  flex-direction: column;
+}
+.footer .footer-links .footer-contact > div {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.footer .footer-links .footer-contact > div p {
+  padding: 1rem 0;
+}
+.footer .footer-links .footer-contact button {
+  outline: none;
+  border: none;
+  background: none;
+  width: 12rem;
+  cursor: pointer;
+  background-color: #aa7938;
+  color: #fff;
+  font-size: 23px;
+  height: 2.3rem;
+  text-align: center;
+  border-radius: 0.4rem;
+}
+.footer .footer-links .footer-contact .footer-connect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer .footer-links .footer-contact .footer-connect > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .footer-links .footer-contact .footer-connect > div > div {
+  padding-right: 1rem;
+}
+.footer .footer-links .footer-contact .footer-connect > div img {
+  width: 40px;
+  height: 40px;
+}
+.footer .footer-ref {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .footer-ref .future-right {
+  display: flex;
+  flex-direction: column;
+}
+.footer .footer-ref .future-right p {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+.footer .footer-ref .future-right img {
+  width: 6rem;
+  padding: 1rem 0;
+}
+.footer .footer-ref .footer-brands {
+  display: flex;
+  flex-direction: column;
+  width: 43rem;
+}
+.footer .footer-ref .footer-brands .footer-brand-images-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+/*# sourceMappingURL=HeaderAndFooter.css.map */

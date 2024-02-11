@@ -1,0 +1,278 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="HeaderAndFooter.master.cs" Inherits="HotelClient.Pages.HeaderAndFooter" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link rel="icon" href="../Images/logo.png" style="width: 10%;" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <title>Taj Lake Palace, Udaipur - Grand Palace Hotel in Udaipur at Lake Pichola | Taj Hotels</title>
+    <link rel="stylesheet" type="text/css" href="Css/HeaderAndFooter.css" />
+    <link rel="stylesheet" type="text/css" href="Css/Home.css" />
+    <style>
+        .error {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 12px;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            display: none;
+        }
+
+        .error-text {
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            background: green;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+    </style>
+      <script type="text/javascript">
+          function showMsg(msg) {
+              console.log(msg);
+              let errorDiv = document.getElementById("error");
+              let errorText = document.getElementById("error-text");
+              errorDiv.style.display = "flex";
+              if (msg.status == 1) {
+                  errorText.style.background = "rgba(165, 6, 6, 0.85)";
+              } else {
+                  errorText.style.background = "#119011bd";
+              }
+              errorText.textContent = msg.info;
+              setTimeout(() => { errorDiv.style.display = "none"; }, 3000);
+          }
+      </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="error" id="error">
+            <div class="error-text" id="error-text"></div>
+        </div>
+        <nav id="navbar">
+            <div class="content-left">
+                <div class="logo">
+                    <img src="../Images/logo.png" alt="Hotel Logo Image" height="38px" />
+                </div>
+                <div class="links">
+                    <asp:HyperLink Style="color: #aa7938;" ID="HyperLink1" NavigateUrl="~/Pages/Home.aspx" runat="server">Home</asp:HyperLink>
+                    <asp:HyperLink Style="color: #aa7938;" ID="HyperLink2" runat="server">Dining</asp:HyperLink>
+                    <asp:HyperLink Style="color: #aa7938;" ID="HyperLink3" runat="server">Wedding</asp:HyperLink>
+                    <asp:HyperLink Style="color: #aa7938;" sID="HyperLink4" NavigateUrl="~/Pages/ManageBooking.aspx" runat="server">Manage Booking</asp:HyperLink>
+                </div>
+            </div>
+            <div class="content-right">
+                <div class="right-links">
+                    <% if (Session["user"] != null)
+                        { %>
+                    <a style="margin-right: 1rem;">Hello <%= ((HotelClient.UserService.User)Session["user"]).Name %></a>
+                    <asp:Button runat="server" ID="logout" Text="LogOut" OnClick="logout_Click" />
+                    <% }
+                        else
+                        { %>
+                    <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Pages/Login.aspx">Sign In</asp:HyperLink>
+
+                    <% } %>
+                </div>
+
+                <%if (Session["user"] == null)
+                    {  %>
+                <div class="button">
+                    <button type="button" onclick="toggleForm()">Book a Stay</button>
+                </div>
+                <%}%>
+            </div>
+        </nav>
+        <div id="content">
+            <asp:Button ID="complexData" runat="server" OnClick="complexData_Click" Style="display: none" Text="none" />
+            <input type="hidden" runat="server" id="hiddenInput" />
+            <div id="home-image" class="home-image">
+                <div class="image">
+                    <img src="../Images/taj.jpg" width="100%" />
+                </div>
+                <div class="image-title">
+                    <span>Taj Lake Palace, Udaipur</span>
+                </div>
+                <div class="book-info" onclick="toggleForm()">
+                    <div>
+                        <div class="label">Where To?</div>
+                        <div>Taj Lake Palace, Udaipur</div>
+                    </div>
+                    <div>
+                        <div class="label">Check-In & Check-Out</div>
+                        <div>
+                            <span id="checkin">
+                                <%= Session["checkin"] ?? "" %>
+                            </span>
+                            <span id="checkout">
+                                <%= Session["checkout"] ?? "" %>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="label">Rooms And Gauests</div>
+                        <div>Total Rooms : <%=Session["roomsSize"] ?? 1 %> -  <%=Session["gauest"] ?? 1 %> Adults,  <%=Session["child"] ?? 0 %> Children</div>
+                    </div>
+                    <div>
+                        <input type="button" value="Check Availability" />
+                    </div>
+                </div>
+                <div id="toggle-form" style="display: none">
+                    <div class="overlay"></div>
+                    <div class="book-form">
+                        <div class="close-logo">
+                            <img src="../Images/close.png" width="15%" onclick="toggleForm()" />
+                        </div>
+                        <div class="date-info">
+                            <div class="name">
+                                <img src="../Images/search-icon.svg" alt="search icon" />
+                                <input type="text" name="hotelname" value="Taj Lake Palace, Udaipur" readonly />
+                            </div>
+                            <div class="from">
+                                <p>From:</p>
+                                <input type="date" id="setTodaysDate" name="setTodaysDate" />
+                            </div>
+                            <div class="to">
+                                <p>To:</p>
+                                <input type="date" id="setTommorowDate" name="setTommorowDate" />
+                            </div>
+                        </div>
+                        <div class="room-info">
+                            <div class="room-outer-info">
+                                <div class="rooms" id="rooms">
+                                    <div class="room active" id="1">
+                                        <button type="button" onclick="selectRoom(1)">
+                                            <span>Room </span>
+                                            <span id="room1">1</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="add-room-btn">
+                                    <button onclick="addroom()" type="button" id="addbtn">+Add Room</button>
+                                </div>
+                            </div>
+                            <div class="info" id="info">
+                                <div class="infoele" id="infoele1">
+                                    <div style="border-right: 1px solid #a49494; width: 50%;">
+                                        ADULTS
+                            <button onclick="decrementadult()" type="button"><span>-</span></button>
+                                        <span id="adultno1">1</span>
+                                        <button onclick="incrementadult()" type="button"><span>+</span></button>
+                                    </div>
+                                    <div>
+                                        CHILDREN 
+                            <button onclick="decrementchild()" type="button"><span>-</span></button>
+                                        <span id="childno1">0</span>
+                                        <button onclick="incrementchild()" type="button"><span>+</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- you can add info here-->
+                        <div class="btn-container">
+                            <input type="button" onclick="handleSubmit()" value="Check Availability" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var complexDataClientId = "<%= complexData.ClientID %>";
+                var hiddenInputClientId = '<%= hiddenInput.ClientID %>';
+            </script>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer id="footer" class="footer">
+            <hr />
+            <div class="footer-links">
+                <div class="links-1">
+                    <div>
+                        <a href="">Airline & Frequent Flyer Partners</a>
+                        <a href="">Taj Magazine</a>
+                        <a href="">J Wellness Circle</a>
+                        <a href="">Site Map</a>
+                        <a href="">Terms Of Use</a>
+                        <a href="">Contact Us</a>
+                    </div>
+                </div>
+                <div class="links-2">
+                    <a href="">Accessibility</a>
+                    <a href="">Languages</a>
+                    <a href="">Privacy Policy</a>
+                    <a href="">Press Room</a>
+                    <a href="">Careers</a>
+                    <a href="">Blogs</a>
+                </div>
+                <div class="links-3">
+                    <a href="">SAATHI</a>
+                    <a href="">NIDHI</a>
+                    <a href="">UTSAV</a>
+                    <a href="">INCREDIBLE INDIA FILM</a>
+                </div>
+                <div class="footer-contact">
+                    <div>
+                        <p>Join our newsletter</p>
+                        <button type="button">SUBSCRIBE</button>
+                    </div>
+                    <div class="footer-connect">
+                        <p>Connect with us:</p>
+                        <div>
+                            <div>
+                                <img src="../Images/ic-facebook@2x.png" />
+                            </div>
+                            <div>
+                                <img src="../Images/ic-instagram@2x.png" />
+                            </div>
+                            <div>
+                                <img src="../Images/twitter.png" />
+                            </div>
+                            <div>
+                                <img src="../Images/ic-youtube.svg" width="5%" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="footer-ref">
+                <div class="future-right">
+                    <img src="../Images/ihcl-logo.svg" />
+                    <p>©2022 The Indian Hotels Company Limited. All Rights Reserved.</p>
+                </div>
+                <div class="footer-brands">
+                    <div>Our Brands:</div>
+                    <div class="footer-brand-images-container">
+                        <div>
+                            <img src="../Images/footer/tajfooter.png" width="50rem" />
+                        </div>
+
+                        <div>
+                            <img src="../Images/footer/seleqtions.png" width="100rem" />
+                        </div>
+                        <div>
+                            <img src="../Images/footer/vivanta.png" width="100rem" />
+                        </div>
+                        <div>
+                            <img src="../Images/footer/ginger.png" width="100rem" />
+                        </div>
+                        <div>
+                            <img src="../Images/footer/ama.png" width="50rem" />
+                        </div>
+                        <div>
+                            <img src="../Images/footer/min.png" width="60rem" />
+                        </div>
+                        <div>
+                            <img src="../Images/footer/tajsats.png" width="70rem" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="Script/Master.js"></script>
+    </form>
+</body>
+</html>

@@ -1,0 +1,214 @@
+﻿@import "colors.scss";
+.main-confirm {
+    margin: 4rem 7rem;
+    box-shadow: 0 0px 6px 1px inset rgb(0 0 0 / 57%);
+    padding: 3rem;
+    border-radius: 1rem;
+
+    .half-confirm {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        > div {
+            text-align: center;
+        }
+
+        .image-confirm {
+            img {
+                width: 100%;
+            }
+        }
+
+        .head-confirm {
+            h1 {
+                font-weight: bold;
+                color: $btncolordark;
+                font-size: 2.3rem;
+                line-height: 1.2;
+                margin: 1rem 2rem;
+            }
+        }
+
+        .print-conform {
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 1rem 0 0 0;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            float: right;
+            margin-left: 34rem;
+            width: 27%;
+
+            input {
+                padding: 1rem 2rem;
+                cursor: pointer;
+                outline: none;
+                color: $btncolordark;
+                border-radius: 0.5rem;
+                border: none;
+                background: white;
+                font-weight: bold;
+                font-size: 1rem;
+                border:2px solid $btncolordark;
+                
+            }
+        }
+    }
+
+    .lower-half-confirm {
+        .general-confi {
+            font-size: 1.2rem;
+            border-bottom: 2px solid;
+            border-bottom-style: dashed;
+            margin-bottom: 2rem;
+            border-bottom-color: $btncolordark;
+
+            p {
+                margin: 0.6rem 0;
+            }
+        }
+
+        .details-confirm {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            .head-details-confirm {
+                h3 {
+                    font-size: 1.7rem;
+                    font-weight: bold;
+                    color: $btncolordark;
+                }
+            }
+
+            .info-confirm {
+                > div {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-direction: row;
+                    padding: 1rem 0;
+                    box-shadow: 0 0px 7px 4px rgb(157 90 13 / 50%);
+                    padding: 1rem;
+                    margin-top: 2rem;
+                    border-radius: 1rem;
+
+                    > div {
+                        margin-right: 3rem;
+
+                        > div {
+                            padding: 0.3rem 0;
+                        }
+
+                        > .info-head {
+                            font-weight: bold;
+                            font-size: 1.3rem;
+                            text-transform: capitalize;
+                        }
+
+                        > .info-info {
+                            color: #000000a8;
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                .gauest {
+                    justify-content: flex-start;
+
+                    .gauest-head {
+                        margin: 0;
+                        width: 20%;
+                    }
+
+                    .gauest-details {
+                        display: flex;
+                        justify-content: flex-start;
+                        width: 100%;
+
+
+                        > div {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin-right: 2rem;
+
+                            > img {
+                                width: 1.5rem;
+                                margin-right: 0.6rem;
+                            }
+                        }
+                    }
+                }
+
+                .room-details {
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+
+                    .room-head {
+                    }
+
+                    .room-info {
+                        width: 100%;
+                        padding: 1rem;
+
+                        > table {
+                            width: 100%;
+                            border-collapse: collapse;
+
+                            th {
+                                text-align: left;
+                                padding: 1rem;
+                                background-color: $btncolordark;
+                                color: white;
+                            }
+
+                            td {
+                                padding: 1rem;
+                            }
+
+                            td, th {
+                                border: 1px solid #ddd;
+                            }
+
+                            tr:nth-child(even) {
+                                background-color: #f2f2f2;
+                            }
+
+                            tr:hover {
+                                background-color: #ddd;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .print-conform {
+                font-size: 1rem;
+                font-weight: bold;
+                padding: 1rem 0 0 0;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                input {
+                    padding: 1rem 2rem;
+                    cursor: pointer;
+                    outline: none;
+                    color: white;
+                    border-radius: 0.5rem;
+                    border: none;
+                    background: $btncolordark;
+                    font-weight: bold;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

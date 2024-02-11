@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="RoomService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/HotelService" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRoomService_GetRooms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRooms" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_GetRooms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoomsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_getRoomsByReservationId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRoomsByReservationId" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_getRoomsByReservationId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRoomsByReservationIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_getAvailabeRooms_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAvailabeRooms" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_getAvailabeRooms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAvailabeRoomsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_getAllEachRoomsByReservationId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllEachRoomsByReservationId" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_getAllEachRoomsByReservationId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllEachRoomsByReservationIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_getAllRoomsByRoomTypeId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllRoomsByRoomTypeId" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_getAllRoomsByRoomTypeId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllRoomsByRoomTypeIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_getFreeRoomIdByRoomHeading_InputMessage">
+    <wsdl:part name="parameters" element="tns:getFreeRoomIdByRoomHeading" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_getFreeRoomIdByRoomHeading_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getFreeRoomIdByRoomHeadingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRoomService">
+    <wsdl:operation name="GetRooms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomService/GetRooms" message="tns:IRoomService_GetRooms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomService/GetRoomsResponse" message="tns:IRoomService_GetRooms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRoomsByReservationId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomService/getRoomsByReservationId" message="tns:IRoomService_getRoomsByReservationId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomService/getRoomsByReservationIdResponse" message="tns:IRoomService_getRoomsByReservationId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAvailabeRooms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomService/getAvailabeRooms" message="tns:IRoomService_getAvailabeRooms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomService/getAvailabeRoomsResponse" message="tns:IRoomService_getAvailabeRooms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllEachRoomsByReservationId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomService/getAllEachRoomsByReservationId" message="tns:IRoomService_getAllEachRoomsByReservationId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomService/getAllEachRoomsByReservationIdResponse" message="tns:IRoomService_getAllEachRoomsByReservationId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllRoomsByRoomTypeId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomService/getAllRoomsByRoomTypeId" message="tns:IRoomService_getAllRoomsByRoomTypeId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomService/getAllRoomsByRoomTypeIdResponse" message="tns:IRoomService_getAllRoomsByRoomTypeId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getFreeRoomIdByRoomHeading">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomService/getFreeRoomIdByRoomHeading" message="tns:IRoomService_getFreeRoomIdByRoomHeading_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomService/getFreeRoomIdByRoomHeadingResponse" message="tns:IRoomService_getFreeRoomIdByRoomHeading_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRoomService" type="tns:IRoomService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRooms">
+      <soap:operation soapAction="http://tempuri.org/IRoomService/GetRooms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRoomsByReservationId">
+      <soap:operation soapAction="http://tempuri.org/IRoomService/getRoomsByReservationId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailabeRooms">
+      <soap:operation soapAction="http://tempuri.org/IRoomService/getAvailabeRooms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllEachRoomsByReservationId">
+      <soap:operation soapAction="http://tempuri.org/IRoomService/getAllEachRoomsByReservationId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllRoomsByRoomTypeId">
+      <soap:operation soapAction="http://tempuri.org/IRoomService/getAllRoomsByRoomTypeId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFreeRoomIdByRoomHeading">
+      <soap:operation soapAction="http://tempuri.org/IRoomService/getFreeRoomIdByRoomHeading" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RoomService">
+    <wsdl:port name="BasicHttpBinding_IRoomService" binding="tns:BasicHttpBinding_IRoomService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/HotelService/RoomService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

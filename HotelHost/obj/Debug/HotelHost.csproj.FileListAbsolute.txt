@@ -1,0 +1,14 @@
+E:\6TH SEM\WSD\Project\HotelHost\obj\Debug\HotelHost.csproj.AssemblyReference.cache
+E:\6TH SEM\WSD\Project\HotelHost\obj\Debug\HotelHost.csproj.GenerateResource.cache
+E:\6TH SEM\WSD\Project\HotelHost\obj\Debug\HotelHost.Properties.Resources.resources
+E:\6TH SEM\WSD\Project\HotelHost\obj\Debug\HotelHost.csproj.CoreCompileInputs.cache
+E:\6TH SEM\WSD\Project\HotelHost\bin\Debug\HotelHost.exe.config
+E:\6TH SEM\WSD\Project\HotelHost\bin\Debug\HotelHost.exe
+E:\6TH SEM\WSD\Project\HotelHost\bin\Debug\HotelHost.pdb
+E:\6TH SEM\WSD\Project\HotelHost\bin\Debug\HotelService.dll
+E:\6TH SEM\WSD\Project\HotelHost\bin\Debug\HotelService.pdb
+E:\6TH SEM\WSD\Project\HotelHost\bin\Debug\HotelService.dll.config
+E:\6TH SEM\WSD\Project\HotelHost\obj\Debug\HotelHost.Form1.resources
+E:\6TH SEM\WSD\Project\HotelHost\obj\Debug\HotelHost.csproj.CopyComplete
+E:\6TH SEM\WSD\Project\HotelHost\obj\Debug\HotelHost.exe
+E:\6TH SEM\WSD\Project\HotelHost\obj\Debug\HotelHost.pdb

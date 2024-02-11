@@ -1,0 +1,71 @@
+﻿@import "colors.scss";
+.manage-main {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 7rem;
+
+
+    .manage-head {
+        color: #6f1200;
+        font-size: 1.9rem;
+    }
+
+    .manage-outside {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        border: 1px solid #d7d7d7;
+        width: 45%;
+
+        .manage-form-head {
+            font-size: 1.4rem;
+            color: #6f1200;
+        }
+
+        .err-msg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ac0000;
+            margin: 1rem 0 0 0;
+
+            .err-img {
+                width: 4rem;
+                margin-right: 1rem;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        .manage-form {
+            padding: 1rem 0;
+
+            > div {
+                height: 3rem;
+                margin: 1rem 0;
+
+                input {
+                    border: 1px solid #d7d7d7;
+                    width: 100%;
+                    height: 100%;
+                    padding-left: 1rem;
+                    font-size: 1.1rem;
+                    color: black;
+                }
+
+                input[type="submit"] {
+                    cursor: pointer;
+                    background: $btncolordark;
+                    color: white;
+                }
+            }
+        }
+
+        .mange-text {
+            border-top: 1px solid #d7d7d7;
+            padding: 1rem 0;
+        }
+    }
+}

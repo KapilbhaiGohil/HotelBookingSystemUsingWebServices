@@ -1,0 +1,170 @@
+.main-confirm {
+  margin: 4rem 7rem;
+  box-shadow: 0 0px 6px 1px inset rgba(0, 0, 0, 0.57);
+  padding: 3rem;
+  border-radius: 1rem;
+}
+.main-confirm .half-confirm {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.main-confirm .half-confirm > div {
+  text-align: center;
+}
+.main-confirm .half-confirm .image-confirm img {
+  width: 100%;
+}
+.main-confirm .half-confirm .head-confirm h1 {
+  font-weight: bold;
+  color: #aa7938;
+  font-size: 2.3rem;
+  line-height: 1.2;
+  margin: 1rem 2rem;
+}
+.main-confirm .half-confirm .print-conform {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1rem 0 0 0;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  float: right;
+  margin-left: 34rem;
+  width: 27%;
+}
+.main-confirm .half-confirm .print-conform input {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  outline: none;
+  color: #aa7938;
+  border-radius: 0.5rem;
+  border: none;
+  background: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border: 2px solid #aa7938;
+}
+.main-confirm .lower-half-confirm .general-confi {
+  font-size: 1.2rem;
+  border-bottom: 2px solid;
+  border-bottom-style: dashed;
+  margin-bottom: 2rem;
+  border-bottom-color: #aa7938;
+}
+.main-confirm .lower-half-confirm .general-confi p {
+  margin: 0.6rem 0;
+}
+.main-confirm .lower-half-confirm .details-confirm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.main-confirm .lower-half-confirm .details-confirm .head-details-confirm h3 {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #aa7938;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 1rem 0;
+  box-shadow: 0 0px 7px 4px rgba(157, 90, 13, 0.5);
+  padding: 1rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm > div > div {
+  margin-right: 3rem;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm > div > div > div {
+  padding: 0.3rem 0;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm > div > div > .info-head {
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm > div > div > .info-info {
+  color: rgba(0, 0, 0, 0.6588235294);
+  font-weight: bold;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm .gauest {
+  justify-content: flex-start;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm .gauest .gauest-head {
+  margin: 0;
+  width: 20%;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm .gauest .gauest-details {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm .gauest .gauest-details > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm .gauest .gauest-details > div > img {
+  width: 1.5rem;
+  margin-right: 0.6rem;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm .room-details {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm .room-details .room-info {
+  width: 100%;
+  padding: 1rem;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm .room-details .room-info > table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm .room-details .room-info > table th {
+  text-align: left;
+  padding: 1rem;
+  background-color: #aa7938;
+  color: white;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm .room-details .room-info > table td {
+  padding: 1rem;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm .room-details .room-info > table td, .main-confirm .lower-half-confirm .details-confirm .info-confirm .room-details .room-info > table th {
+  border: 1px solid #ddd;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm .room-details .room-info > table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm .room-details .room-info > table tr:hover {
+  background-color: #ddd;
+}
+.main-confirm .lower-half-confirm .details-confirm .print-conform {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1rem 0 0 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-confirm .lower-half-confirm .details-confirm .print-conform input {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+  background: #aa7938;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/*# sourceMappingURL=BookingConfirmation.css.map */
