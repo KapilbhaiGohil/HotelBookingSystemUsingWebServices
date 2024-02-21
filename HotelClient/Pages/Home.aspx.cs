@@ -23,8 +23,8 @@ namespace HotelClient
                 Session["msg"] = null;
 
             }
-
-            Room[] rooms = new RoomServiceClient().GetRooms();
+            RoomServiceClient roomService = new RoomServiceClient();
+            Room[] rooms = roomService.GetRooms();
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
             string obj = javaScriptSerializer.Serialize(rooms);
             Session["RefactorRooms"] = obj;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="22f8fcad-1c9e-4844-adc0-593d6669d3b3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="cea8c394-b4ba-4292-be8b-fb9cb1823e9b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/HotelService/RoomService/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://localhost/HotelBookingServices/RoomService" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="acc2db43-7135-45a5-a5ac-01050cc3fe40" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/HotelService/RoomService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="632a72c5-10db-4758-b250-56be2f275a54" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/HotelService/RoomService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="7d836fe4-fc23-4eb7-a943-c968ac83426f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/HotelService/RoomService/mex" />
-    <MetadataFile FileName="HotelService.xsd" MetadataType="Schema" ID="b0debdaa-5577-4724-8717-24ec94312b86" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/HotelService/RoomService/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="0cef650f-f8b3-4a99-b648-3c6af2dc9f7b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/HotelService/RoomService/mex" />
+    <MetadataFile FileName="RoomService.xsd" MetadataType="Schema" ID="21c2b238-5d01-4896-a9eb-16521dfe960d" SourceId="1" SourceUrl="http://localhost/HotelBookingServices/RoomService?xsd=xsd2" />
+    <MetadataFile FileName="RoomService1.xsd" MetadataType="Schema" ID="c0b06a2f-48dc-4812-bdc0-aa505c67ae1a" SourceId="1" SourceUrl="http://localhost/HotelBookingServices/RoomService?xsd=xsd0" />
+    <MetadataFile FileName="RoomService2.xsd" MetadataType="Schema" ID="9209d652-586c-4a81-98e2-d188f96d9bde" SourceId="1" SourceUrl="http://localhost/HotelBookingServices/RoomService?xsd=xsd3" />
+    <MetadataFile FileName="RoomService.disco" MetadataType="Disco" ID="64172848-c21c-4f1d-ae35-8da4181799b5" SourceId="1" SourceUrl="http://localhost/HotelBookingServices/RoomService?disco" />
+    <MetadataFile FileName="RoomService.wsdl" MetadataType="Wsdl" ID="715e0694-2b5b-4316-be2e-3fed2519d6b7" SourceId="1" SourceUrl="http://localhost/HotelBookingServices/RoomService?wsdl" />
+    <MetadataFile FileName="RoomService3.xsd" MetadataType="Schema" ID="0fd4f183-cf6b-4f66-827a-b170f0d0b4e9" SourceId="1" SourceUrl="http://localhost/HotelBookingServices/RoomService?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

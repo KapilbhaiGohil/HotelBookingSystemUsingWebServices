@@ -26,6 +26,7 @@ namespace HotelService
         [OperationContract]
         int getFreeRoomIdByRoomHeading(string heading);
     }
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class RoomService : IRoomService
     {
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["HotelBookingConnection"].ConnectionString;

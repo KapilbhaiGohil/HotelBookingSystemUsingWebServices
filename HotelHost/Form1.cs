@@ -33,33 +33,37 @@ namespace HotelHost
             }
             else
             {
-                Uri tcpuri = new Uri("net.tcp://localhost:8000/TcpBinding");
-                Uri tcpuri2 = new Uri("net.tcp://localhost:8001/TcpBinding");
-                Uri tcpuri3 = new Uri("net.tcp://localhost:8002/TcpBinding");
+                string baseAddress = "http://localhost/HotelBookingServices/";
+                Uri httpUri1 = new Uri(baseAddress+"RoomService");
+                Uri httpUri2 = new Uri(baseAddress + "ReservationService");
+                Uri httpUri3 = new Uri(baseAddress + "UserService");
 
-                sh = new ServiceHost(typeof(HotelService.RoomService), tcpuri);
-                sh2 = new ServiceHost(typeof(HotelService.ReservationService), tcpuri2);
-                sh3 = new ServiceHost(typeof(HotelService.UserService), tcpuri3);
 
-                NetTcpBinding tcpb = new NetTcpBinding();
-                NetTcpBinding tcpb2 = new NetTcpBinding();
-                NetTcpBinding tcpb3 = new NetTcpBinding();
+                sh = new ServiceHost(typeof(HotelService.RoomService), httpUri1);
+                sh2 = new ServiceHost(typeof(HotelService.ReservationService), httpUri2);
+                sh3 = new ServiceHost(typeof(HotelService.UserService), httpUri3);
 
-                ServiceMetadataBehavior mBehcave = new ServiceMetadataBehavior();
+                BasicHttpBinding binding1 = new BasicHttpBinding();
+                BasicHttpBinding binding2 = new BasicHttpBinding();
+                BasicHttpBinding binding3 = new BasicHttpBinding();
+
+                ServiceMetadataBehavior mBehcave1 = new ServiceMetadataBehavior();
                 ServiceMetadataBehavior mBehcave2 = new ServiceMetadataBehavior();
                 ServiceMetadataBehavior mBehcave3 = new ServiceMetadataBehavior();
-
-                sh.Description.Behaviors.Add(mBehcave);
+                mBehcave1.HttpGetEnabled = true;
+                mBehcave2.HttpGetEnabled = true;
+                mBehcave3.HttpGetEnabled = true;
+                sh.Description.Behaviors.Add(mBehcave1);
                 sh2.Description.Behaviors.Add(mBehcave2);
                 sh3.Description.Behaviors.Add(mBehcave3);
 
-                sh.AddServiceEndpoint(typeof(IMetadataExchange), MetadataExchangeBindings.CreateMexTcpBinding(), "mex");
-                sh2.AddServiceEndpoint(typeof(IMetadataExchange), MetadataExchangeBindings.CreateMexTcpBinding(), "mex");
-                sh3.AddServiceEndpoint(typeof(IMetadataExchange), MetadataExchangeBindings.CreateMexTcpBinding(), "mex");
-                
-                sh.AddServiceEndpoint(typeof(HotelService.IRoomService), tcpb, tcpuri);
-                sh2.AddServiceEndpoint(typeof(HotelService.IReservationService), tcpb2, tcpuri2);
-                sh3.AddServiceEndpoint(typeof(HotelService.IUserService), tcpb3, tcpuri3);
+                sh.AddServiceEndpoint(typeof(IMetadataExchange), MetadataExchangeBindings.CreateMexHttpBinding(), "mex");
+                sh2.AddServiceEndpoint(typeof(IMetadataExchange), MetadataExchangeBindings.CreateMexHttpBinding(), "mex");
+                sh3.AddServiceEndpoint(typeof(IMetadataExchange), MetadataExchangeBindings.CreateMexHttpBinding(), "mex");
+
+                sh.AddServiceEndpoint(typeof(HotelService.IRoomService), binding1, httpUri1);
+                sh2.AddServiceEndpoint(typeof(HotelService.IReservationService), binding2, httpUri2);
+                sh3.AddServiceEndpoint(typeof(HotelService.IUserService), binding3, httpUri3);
 
                 sh.Open();
                 sh2.Open();
@@ -68,6 +72,11 @@ namespace HotelHost
                 label1.Text = "Services are Running";
                 button1.Text = "Stop";
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

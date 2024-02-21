@@ -170,27 +170,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ReservationService\Arrays.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Connected Services\ReservationService\HotelClient.ReservationService.Reservation.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\ReservationService\HotelClient.ReservationService.ReservationFull.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\ReservationService\HotelService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ReservationService\service.wsdl" />
-    <None Include="Connected Services\ReservationService\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ReservationService\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\RoomService\Arrays.xsd">
-      <SubType>Designer</SubType>
+    <None Include="Connected Services\ReservationService\ReservationService.disco" />
+    <None Include="Connected Services\ReservationService\configuration91.svcinfo" />
+    <None Include="Connected Services\ReservationService\configuration.svcinfo" />
+    <None Include="Connected Services\ReservationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Connected Services\RoomService\HotelClient.RoomService.Room.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -198,24 +189,20 @@
     <Content Include="Connected Services\RoomService\HotelClient.RoomService.RoomData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\RoomService\HotelService.xsd">
+    <None Include="Connected Services\ReservationService\ReservationService.wsdl" />
+    <None Include="Connected Services\ReservationService\ReservationService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\RoomService\service.wsdl" />
-    <None Include="Connected Services\RoomService\service.xsd">
+    <None Include="Connected Services\ReservationService\ReservationService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\RoomService\service1.xsd">
+    <None Include="Connected Services\ReservationService\ReservationService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\UserService\configuration91.svcinfo" />
-    <None Include="Connected Services\UserService\configuration.svcinfo" />
-    <None Include="Connected Services\ReservationService\configuration91.svcinfo" />
-    <None Include="Connected Services\ReservationService\configuration.svcinfo" />
-    <None Include="Connected Services\ReservationService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
+    <None Include="Connected Services\ReservationService\ReservationService3.xsd">
+      <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\RoomService\RoomService.disco" />
     <None Include="Connected Services\RoomService\configuration91.svcinfo" />
     <None Include="Connected Services\RoomService\configuration.svcinfo" />
     <None Include="Connected Services\RoomService\Reference.svcmap">
@@ -225,6 +212,9 @@
     <Content Include="Connected Services\UserService\HotelClient.UserService.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\UserService\UserService.disco" />
+    <None Include="Connected Services\UserService\configuration91.svcinfo" />
+    <None Include="Connected Services\UserService\configuration.svcinfo" />
     <None Include="Connected Services\UserService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -347,14 +337,27 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\UserService\HotelService.xsd">
+    <None Include="Connected Services\RoomService\RoomService.wsdl" />
+    <None Include="Connected Services\RoomService\RoomService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\UserService\service.wsdl" />
-    <None Include="Connected Services\UserService\service.xsd">
+    <None Include="Connected Services\RoomService\RoomService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\UserService\service1.xsd">
+    <None Include="Connected Services\RoomService\RoomService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RoomService\RoomService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserService\UserService.wsdl" />
+    <None Include="Connected Services\UserService\UserService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserService\UserService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserService\UserService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
