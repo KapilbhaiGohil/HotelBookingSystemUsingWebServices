@@ -1,7 +1,7 @@
 ﻿if (reservationInfo === "") {
     window.location.href = "/Pages/Home.aspx";
 }
-showMsg({info:"Thanks For Choosing Us",status:0})
+//showMsg({info:"Thanks For Choosing Us",status:0})
 function isValidDateFormat(dateString) {
     var regexPattern = /^\d{4}-\d{2}-\d{2}$/;
     return regexPattern.test(dateString);

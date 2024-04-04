@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using iText.Html2pdf;
 using iText.IO.Source;
 using HotelClient.ReservationService;
+using System.Web.Script.Serialization;
 
 namespace HotelClient.Pages
 {
@@ -33,7 +34,11 @@ namespace HotelClient.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             // Response.Write(Session["reservationInfo"]);
-            //Response.Write(HttpContext.Current.Server.MapPath("/Pages/"));
+            //Response.Write(HttpContext.Current.Server.MapPath("/Pages/"));if (Session["msg"] != null)
+            if (Session["msg"]!=null){
+                ClientScript.RegisterStartupScript(this.GetType(), "msg", "showMsg(" + new JavaScriptSerializer().Serialize(Session["msg"]) + ")", true);
+                Session["msg"] = null;
+            }
             Session["jsrooms"] = null;
         }
         protected void print_Click(object sender, EventArgs e)
@@ -59,18 +64,22 @@ namespace HotelClient.Pages
                 Response.Redirect("~/Pages/Home.aspx");
             }
             int bookingId = (int)Session["bookingId"];
-            bool res = new ReservationServiceClient().cancelReservation(bookingId);
-            if (res)
+            string res = new ReservationServiceClient().cancelReservation(bookingId);
+            if (res== "Cancellation successful.")
             {
                 Session["msg"] = new Message("Your Booking SuccessFully Cancelled",Status.successful);
                 Response.Write("success");
+                Response.Redirect("~/Pages/Home.aspx");
             }
             else
             {
-                Session["msg"] = new Message("Might Be Some Internal Server Error Or Booking Already Cancelled ", Status.Error);
-                Response.Write("error");
+                Session["msg"] = new Message(res, Status.Error);
+               // ClientScript.RegisterStartupScript(this.GetType(), "msg", "showMsg(" + new JavaScriptSerializer().Serialize(Session["msg"]) + ")", true);
+               // ClientScript.RegisterStartupScript(this.GetType(), "msg", "showMsg({info:`"+res+"` , status:1})", true);
+                Response.Redirect("~/Pages/BookingConfirmation.aspx");
+                //Response.Write("error");
             }
-           Response.Redirect("~/Pages/Home.aspx");
+            /*Response.Redirect("~/Pages/Home.aspx");*/
         }
     }
 }

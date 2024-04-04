@@ -59,7 +59,7 @@ for (let j = 0; j < RefactorRooms.length; j++) {
         html += `
                <div class="price">
                 <span>&#x20B9; `+ numericPrice.toLocaleString() + `</span>
- <p>Starting Rate/Night</p>
+ <p>Rate (including all days)</p>
  <input type="button" onclick="addToCart('`+ RefactorRooms[j].Type + `','` + numericPrice + `')" value="Select Room" />
                </div>
             </div>

@@ -29,7 +29,7 @@
                         </div>
                         <div class="booking-rooms">
                             <div class="booking-data-info">
-                                <span id="dayAndNight">2 Days & 1 Night</span>
+                                <span id="dayAndNight">2 Days and 1 Night</span>
                                 <span style="float: right;">
                                     <input type="button" onclick="goBack()" value="Change Room" /></span>
                             </div>

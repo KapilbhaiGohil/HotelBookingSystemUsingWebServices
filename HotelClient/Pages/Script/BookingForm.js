@@ -41,7 +41,7 @@ function BookARoom() {
 }
 function getDaysAndNight() {
     return `
-        ${finalBookingData.totaldays + 1} Days && ${finalBookingData.totaldays} Nights
+        ${finalBookingData.totaldays + 1} Days and ${finalBookingData.totaldays} Nights
     `
 }
 function getRoomsList() {

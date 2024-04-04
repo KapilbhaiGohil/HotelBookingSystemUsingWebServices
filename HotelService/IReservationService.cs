@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
@@ -14,7 +15,7 @@ namespace HotelService
     public interface IReservationService
     {
         [OperationContract]
-        bool cancelReservation(int resId);
+        string cancelReservation(int resId);
         [OperationContract]
         ReservationFull FindReservationByIdAndEmail(int id, string email);
         [OperationContract]
@@ -121,8 +122,64 @@ namespace HotelService
                 transaction.Dispose();
             }
         }
+        private void DeleteReservationsPastCheckout()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlTransaction tran = con.BeginTransaction();
+            try
+            {
+                // Step 1: Retrieve reservation IDs where checkout < today
+                string retrieveQuery = "SELECT id FROM reservation WHERE checkout < @today";
+                SqlCommand retrieveCmd = new SqlCommand(retrieveQuery, con, tran);
+                retrieveCmd.Parameters.AddWithValue("@today", DateTime.Today);
+                SqlDataReader retrieveReader = retrieveCmd.ExecuteReader();
+
+                List<int> reservationIds = new List<int>();
+                while (retrieveReader.Read())
+                {
+                    reservationIds.Add(retrieveReader.GetInt32(0));
+                }
+                retrieveReader.Close(); // Close the reader after use
+
+                // Step 2: Delete entries from reservationeachroom table
+                string deleteEachRoomQuery = "DELETE FROM reservationeachroom WHERE reservationid = @resId";
+                SqlCommand deleteEachRoomCmd = new SqlCommand(deleteEachRoomQuery, con, tran);
+                foreach (int resId in reservationIds)
+                {
+                    deleteEachRoomCmd.Parameters.Clear();
+                    deleteEachRoomCmd.Parameters.AddWithValue("@resId", resId);
+                    deleteEachRoomCmd.ExecuteNonQuery();
+                }
+
+                // Step 3: Delete entries from reservation table
+                string deleteReservationQuery = "DELETE FROM reservation WHERE id = @resId";
+                SqlCommand deleteReservationCmd = new SqlCommand(deleteReservationQuery, con, tran);
+                foreach (int resId in reservationIds)
+                {
+                    deleteReservationCmd.Parameters.Clear();
+                    deleteReservationCmd.Parameters.AddWithValue("@resId", resId);
+                    deleteReservationCmd.ExecuteNonQuery();
+                }
+
+                // Commit transaction if everything succeeded
+                tran.Commit();
+            }
+            catch (Exception ex)
+            {
+                // Rollback transaction if an error occurred
+                tran.Rollback();
+                throw ex; // Rethrow the exception to handle it at higher level
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public ReservationFull FindReservationByIdAndEmail(int id, string email)
         {
+            DeleteReservationsPastCheckout();
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             string query = "select * from reservation where id = @id and email = @email;";
@@ -160,35 +217,68 @@ namespace HotelService
                 con.Close();
             }
         }
-        public bool cancelReservation(int resId)
+        public string cancelReservation(int resId)
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             SqlTransaction tran = con.BeginTransaction();
-            string query = "delete from reservationeachroom where reservationid = @resId;";
-            string query2 = "delete  from reservation where id = @resId;";
-            SqlCommand cmd = new SqlCommand(query, con, tran);
-            SqlCommand cmd2 = new SqlCommand(query2, con, tran);
+            string validate = "select checkin from reservation where id = @resId";
+            SqlCommand validateCmd = new SqlCommand(validate, con);
+            validateCmd.Parameters.AddWithValue("@resId", resId);
+            validateCmd.Transaction = tran;
+
             try
             {
-                cmd.Parameters.AddWithValue("@resId", resId);
+                using (SqlDataReader rdr = validateCmd.ExecuteReader())
+                {
+                    if (rdr.Read())
+                    {
+                        DateTime checkinDate = rdr.GetDateTime(0);
+                        DateTime today = DateTime.Today;
+                        DateTime minAllowded = today.AddDays(1);
+                        if (checkinDate < minAllowded)
+                        {
+                            return "You are not allowed to cancel your booking.";
+                        }
+                    }
+                    else
+                    {
+                        return "No booking found with the given ID.";
+                    }
+                }
+
+                string query1 = "delete from reservationeachroom where reservationid = @resId";
+                SqlCommand cmd1 = new SqlCommand(query1, con, tran);
+                cmd1.Parameters.AddWithValue("@resId", resId);
+                int rowsAffected1 = cmd1.ExecuteNonQuery();
+
+                string query2 = "delete from reservation where id = @resId";
+                SqlCommand cmd2 = new SqlCommand(query2, con, tran);
                 cmd2.Parameters.AddWithValue("@resId", resId);
-                int ok = cmd.ExecuteNonQuery();
-                int ok1 = cmd2.ExecuteNonQuery();
-                tran.Commit();
-                return ok >= 1 && ok1 == 1;
+                int rowsAffected2 = cmd2.ExecuteNonQuery();
+
+                if (rowsAffected1 > 0 && rowsAffected2 > 0)
+                {
+                    tran.Commit();
+                    return "Cancellation successful.";
+                }
+                else
+                {
+                    tran.Rollback();
+                    return "No booking found or error occurred.";
+                }
             }
             catch (Exception ex)
             {
                 tran.Rollback();
-                return false;
+                return "Internal server error: " + ex.Message;
             }
             finally
             {
-                cmd.Dispose();
                 con.Close();
             }
         }
+
     }
     [DataContract]
     public class Reservation

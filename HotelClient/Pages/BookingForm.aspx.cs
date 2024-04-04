@@ -29,6 +29,7 @@ namespace HotelClient.Pages
             if(res!=0) {
                 Session["reservationInfo"] = hiddenField.Value;
                 Session["bookingId"] = res;
+                Session["msg"] = new Message("Thank you for choosing us.", Status.successful);
                 Response.Redirect("~/Pages/BookingConfirmation.aspx"); 
             }
             else { }

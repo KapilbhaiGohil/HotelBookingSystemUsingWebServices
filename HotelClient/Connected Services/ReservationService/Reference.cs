@@ -566,10 +566,10 @@ namespace HotelClient.ReservationService {
     public interface IReservationService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/cancelReservation", ReplyAction="http://tempuri.org/IReservationService/cancelReservationResponse")]
-        bool cancelReservation(int resId);
+        string cancelReservation(int resId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/cancelReservation", ReplyAction="http://tempuri.org/IReservationService/cancelReservationResponse")]
-        System.Threading.Tasks.Task<bool> cancelReservationAsync(int resId);
+        System.Threading.Tasks.Task<string> cancelReservationAsync(int resId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/FindReservationByIdAndEmail", ReplyAction="http://tempuri.org/IReservationService/FindReservationByIdAndEmailResponse")]
         HotelClient.ReservationService.ReservationFull FindReservationByIdAndEmail(int id, string email);
@@ -623,11 +623,11 @@ namespace HotelClient.ReservationService {
                 base(binding, remoteAddress) {
         }
         
-        public bool cancelReservation(int resId) {
+        public string cancelReservation(int resId) {
             return base.Channel.cancelReservation(resId);
         }
         
-        public System.Threading.Tasks.Task<bool> cancelReservationAsync(int resId) {
+        public System.Threading.Tasks.Task<string> cancelReservationAsync(int resId) {
             return base.Channel.cancelReservationAsync(resId);
         }
         
